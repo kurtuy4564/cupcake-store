@@ -1,26 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --bg-cream: #F5EDE6;
+  --bg-blush: #F8C1CC;
+  --bg-sand: #EDE0D4;
+  --accent-mint: #A8D5BA;
+  --text-primary: #1F2937;
+  --text-muted: #475569;
+  --surface: #ffffff;
+  --radius: 1rem;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-body: "Inter", " system-ui", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Playfair Display", "Georgia", serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text-primary);
+  background-color: var(--bg-cream);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  color: var(--text-primary);
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full border border-black/10 px-5 py-2.5 text-sm font-semibold transition-all duration-200;
+  background-color: var(--surface);
+  color: var(--text-primary);
+  box-shadow: 0 8px 22px rgba(31, 41, 55, 0.12);
+}
+
+.btn-primary:hover {
+  background-color: rgba(248, 193, 204, 0.22);
+  transform: translateY(-1px);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid rgba(16, 24, 40, 0.08);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
+}
+
+.card .card-title {
+  font-weight: 700;
+}
+
+.card .card-price {
+  color: var(--accent-mint);
+  font-weight: 700;
 }
