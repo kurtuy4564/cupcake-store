@@ -1,8 +1,8 @@
 import { CupcakeCard } from '@/entities/cupcake'
-import { CapCake } from '@/entities/cupcake/types'
+import { CupCake } from '@/entities/cupcake/types'
 import React, { Fragment } from 'react'
 
-export const HitsSeason = ({ cupcakes }: { cupcakes: CapCake[] }) => {
+export const HitsSeason = ({ cupcakes }: { cupcakes: CupCake[] }) => {
   return (
     <section id='hits' className='mt-16 pb-10'>
       <h2 className='text-2xl font-extrabold tracking-tight text-slate-900'>Хиты сезона</h2>

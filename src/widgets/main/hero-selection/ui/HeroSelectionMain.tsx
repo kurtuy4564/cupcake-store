@@ -1,5 +1,6 @@
 import { CustomBabge } from '@/shared/ui/CustomBabge'
 import { FigureImage } from '@/shared/ui/FigureImage'
+import Link from 'next/link'
 
 export const HeroSelectionMain = () => {
   return (
@@ -17,18 +18,16 @@ export const HeroSelectionMain = () => {
           вкус и пастельная эстетика. Выберите любимый — доверьтесь вкусу.
         </p>
         <div className='flex flex-wrap gap-4'>
-          <a href='#menu' className='btn-primary'>
+          <Link href='/menu' className='btn-primary px-6 py-3 text-sm font-semibold w-40'>
             Смотреть меню
-          </a>
-          <a
-            href='#hits'
-            className='btn-primary border-0 bg-mint text-white shadow-lg hover:bg-[#84c7a0]'>
-            Хиты сезона
-          </a>
+          </Link>
         </div>
       </article>
 
-      <FigureImage />
+      <FigureImage
+        src='https://static-basket-02.wbbasket.ru/vol25/wbkids_articles_editor/134b0b53-abf9-4b3f-b89e-ef9387cca17d.jpg'
+        alt='Набор капкейков на деревянной доске'
+      />
     </section>
   )
 }

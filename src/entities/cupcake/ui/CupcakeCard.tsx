@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import React from 'react'
-import { CapCake } from '../types'
+import { CupCake } from '../types'
 import { AddToCartButton } from '@/features/add-to-cart'
 
-export const CupcakeCard = ({ cupcake }: { cupcake: CapCake }) => {
+export const CupcakeCard = ({ cupcake }: { cupcake: CupCake }) => {
   return (
     <article key={cupcake.name} className='card overflow-hidden'>
       <Image
@@ -17,7 +17,7 @@ export const CupcakeCard = ({ cupcake }: { cupcake: CapCake }) => {
       <div className='p-4 space-y-2'>
         <h3 className='card-title text-lg font-bold'>{cupcake.name}</h3>
         <p className='card-price text-lg'>{cupcake.price}</p>
-        
+
         <AddToCartButton />
       </div>
     </article>

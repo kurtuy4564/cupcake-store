@@ -1,12 +1,22 @@
 import Image from 'next/image'
-import React from 'react'
 
-export const FigureImage = () => {
+export const FigureImage = ({
+  src,
+  alt,
+  className,
+}: {
+  src: string
+  alt: string
+  className?: string
+}) => {
   return (
-    <figure className='overflow-hidden rounded-4xl border border-[#EDE0D4] bg-white shadow-xl'>
+    <figure
+      className={
+        className || 'overflow-hidden rounded-4xl border border-[#EDE0D4] bg-white shadow-xl'
+      }>
       <Image
-        src='https://static-basket-02.wbbasket.ru/vol25/wbkids_articles_editor/134b0b53-abf9-4b3f-b89e-ef9387cca17d.jpg'
-        alt='Набор капкейков на деревянной доске'
+        src={src}
+        alt={alt}
         className='h-80 w-full object-cover sm:h-96'
         width={1440}
         height={960}
