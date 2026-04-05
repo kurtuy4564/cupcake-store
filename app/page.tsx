@@ -1,56 +1,12 @@
+import { featuredCupcakes } from '@/entities/cupcake/config/mocks'
+import { Header } from '@/widgets/header/'
 import Image from 'next/image'
-
-const featuredCupcakes = [
-  {
-    name: 'Red Velvet Cupcake',
-    price: '$7.00',
-    image:
-      'https://images.unsplash.com/photo-1516685304081-de7947d419d3?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    name: 'Chocolate & Berry Cupcake',
-    price: '$8.50',
-    image:
-      'https://images.unsplash.com/photo-1604152135912-04a0eb76ccf6?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    name: 'Lemon Zest Cupcake',
-    price: '$8.00',
-    image:
-      'https://images.unsplash.com/photo-1548389414-ff9f03d2479b?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    name: 'Strawberry & Cream Cupcake',
-    price: '$7.00',
-    image:
-      'https://images.unsplash.com/photo-1510188611298-6f5f711a1722?auto=format&fit=crop&w=900&q=80',
-  },
-]
 
 export default function Home() {
   return (
     <div className='min-h-screen bg-cream text-slate-900'>
       <div className='mx-auto w-full max-w-7xl px-6 py-8 lg:py-12'>
-        <header className='flex flex-wrap items-center justify-between gap-4 border-b border-b-[#EDE0D4] pb-5'>
-          <a href='#' className='flex items-center gap-3 text-lg font-bold text-slate-900'>
-            <span className='h-10 w-10 rounded-full bg-mint flex items-center justify-center text-base font-bold text-white'>
-              C
-            </span>
-            Cupcake
-          </a>
-          <nav className='flex items-center gap-4 text-sm font-medium text-slate-700'>
-            <a href='#menu' className='hover:text-slate-900'>
-              Меню
-            </a>
-            <a href='#hits' className='hover:text-slate-900'>
-              Хиты сезона
-            </a>
-            <a href='#contacts' className='hover:text-slate-900'>
-              Контакты
-            </a>
-          </nav>
-          <button className='btn-primary'>🛒 Корзина</button>
-        </header>
+        <Header />
 
         <main>
           <section
@@ -81,7 +37,7 @@ export default function Home() {
 
             <figure className='overflow-hidden rounded-[2rem] border border-[#EDE0D4] bg-white shadow-xl'>
               <Image
-                src='https://images.unsplash.com/photo-1521389508051-d7ffb5dc8a0f?auto=format&fit=crop&w=1440&q=80'
+                src='https://static-basket-02.wbbasket.ru/vol25/wbkids_articles_editor/134b0b53-abf9-4b3f-b89e-ef9387cca17d.jpg'
                 alt='Набор капкейков на деревянной доске'
                 className='h-80 w-full object-cover sm:h-96'
                 width={1440}
