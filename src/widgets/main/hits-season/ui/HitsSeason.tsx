@@ -4,7 +4,7 @@ import React, { Fragment } from 'react'
 
 export const HitsSeason = ({ cupcakes }: { cupcakes: CupCake[] }) => {
   return (
-    <section id='hits' className='mt-16 pb-10'>
+    <section id='hits' className='mt-16'>
       <h2 className='text-2xl font-extrabold tracking-tight text-slate-900'>Хиты сезона</h2>
       <p className='mt-2 max-w-2xl text-sm text-slate-600'>
         Откройте для себя самые популярные вкусы этого месяца. Лимитированные позиции, готовые к

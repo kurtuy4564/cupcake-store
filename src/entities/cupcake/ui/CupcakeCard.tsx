@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { CupCake } from '../types'
-import { AddToCartButton } from '@/features/add-to-cart'
+import { AddToCartButton } from '@/features/cart'
 
 export const CupcakeCard = ({ cupcake }: { cupcake: CupCake }) => {
   return (

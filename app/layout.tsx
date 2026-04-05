@@ -42,7 +42,7 @@ export default function RootLayout({
         <div className='min-h-screen bg-cream text-slate-900'>
           <div className='mx-auto w-full max-w-7xl px-6 py-8 lg:py-12'>
             <Header />
-            <main>{children}</main>
+            <main className='my-10'>{children}</main>
             <Footer />
           </div>
         </div>

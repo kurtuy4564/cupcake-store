@@ -5,7 +5,7 @@ import Link from 'next/link'
 export const HeroSelectionMain = () => {
   return (
     <section
-      className='relative mt-10 grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-center'
+      className='relative grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-center'
       aria-label='Hero section'>
       <article className='space-y-6 space-x-3'>
         <CustomBabge>Хиты вкуса</CustomBabge>
