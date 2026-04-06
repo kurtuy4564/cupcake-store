@@ -1,7 +1,11 @@
+'use client'
+
 import { CupcakeCard } from '@/entities/cupcake'
-import { featuredCupcakes } from '@/entities/cupcake/config/mocks'
+import { useCupCakeStore } from '@/entities/cupcake/model/store'
 
 export default function MenuPage() {
+  const cupcake = useCupCakeStore(state => state.cupcakes)
+
   return (
     <section id='menu' className='space-y-10'>
       <div className='rounded-[2rem] border border-[#EDE0D4] bg-white p-8 shadow-xl'>
@@ -18,7 +22,7 @@ export default function MenuPage() {
 
         <div className='mt-6 flex flex-wrap gap-3'>
           <span className='rounded-full bg-rose-100 px-4 py-2 text-sm font-medium text-rose-700'>
-            {featuredCupcakes.length} позиции
+            {cupcake.length} позиции
           </span>
           <span className='rounded-full bg-mint px-4 py-2 text-sm font-medium text-white'>
             Свежие вкусы каждый день
@@ -27,7 +31,7 @@ export default function MenuPage() {
       </div>
 
       <div className='grid gap-6 md:grid-cols-2 xl:grid-cols-4'>
-        {featuredCupcakes.map(cupcake => (
+        {cupcake.map(cupcake => (
           <CupcakeCard key={cupcake.id} cupcake={cupcake} />
         ))}
       </div>

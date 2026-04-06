@@ -1,8 +1,10 @@
-import { featuredCupcakes } from '@/entities/cupcake/config/mocks'
+import { useCupCakeStore } from '@/entities/cupcake/model/store'
 import { CupcakeCartCard } from '@/entities/cupcake/ui/CupcakeCartCard'
 import { Fragment } from 'react/jsx-runtime'
 
 export const CartList = () => {
+    const cupcake = useCupCakeStore(state => state.cupcakes)
+
   return (
     <div className='space-y-6 rounded-[2rem] border border-[#EDE0D4] bg-white p-6 shadow-sm'>
       <div className='space-y-4 border-b border-[#EDE0D4] pb-4'>
@@ -11,7 +13,7 @@ export const CartList = () => {
       </div>
 
       <div className='space-y-4'>
-        {featuredCupcakes.map(cupcake => (
+        {cupcake.map(cupcake => (
           <Fragment key={cupcake.id}>
             <CupcakeCartCard cupcake={cupcake} />
           </Fragment>

@@ -1,5 +1,5 @@
 import { CupCake } from '@/entities/cupcake/types'
-import { create, StoreApi, UseBoundStore } from 'zustand'
+import { create } from 'zustand'
 
 interface CartState {
   cupcakes: CupCake[]
