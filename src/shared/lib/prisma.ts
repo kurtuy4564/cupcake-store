@@ -8,8 +8,6 @@ const globalForPrisma = globalThis as unknown as {
 
 const connectionString = process.env.DATABASE_URL
 
-// NOTE: For production, you should use a connection pooler like PgBouncer
-// to avoid connection limits. For development, you can use a simple Pool.
 const pool = new Pool({ connectionString })
 const adapter = new PrismaPg(pool)
 
