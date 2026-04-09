@@ -10,7 +10,7 @@ export async function singInWithCredentials(formData: FormDataLogin) {
       password: formData.password,
       redirect: false,
     })
-
+    
     return result
   } catch (error) {
     console.error('Ошибка входа:', error)

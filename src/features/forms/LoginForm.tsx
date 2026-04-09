@@ -24,18 +24,30 @@ export const LoginForm = () => {
     email: '',
     password: '',
   })
+  const [error, setError] = useState<string>('')
+
+  const isPasswordValid = formData.password.length >= 8 && formData.password.length <= 32
+  const isFormValid = formData.email && isPasswordValid
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setError('')
+
+    if (!isFormValid) {
+      setError('Пароль должен быть от 8 до 32 символов')
+      return
+    }
 
     const result = await singInWithCredentials(formData)
-
+    
+    console.log(result)
+    
     if (result?.ok) {
       router.push('/')
       return
     }
 
-    console.log('Login error:', result?.error || 'Unknown error')
+    setError('Неверный email или пароль')
   }
 
   return (
@@ -46,6 +58,7 @@ export const LoginForm = () => {
           <CardDescription className='text-black'>
             Введите ваш email для входа в аккаунт
           </CardDescription>
+          {error && <div className='mt-2 text-sm text-red-600'>{error}</div>}
           <CardAction>
             <Button variant='link' className='text-blush hover:text-blush/80' asChild>
               <a href='/register'>Регистрация</a>
@@ -84,6 +97,8 @@ export const LoginForm = () => {
                   id='password'
                   type='password'
                   required
+                  minLength={8}
+                  maxLength={32}
                   value={formData.password}
                   onChange={e => setFormData({ ...formData, password: e.target.value })}
                   className='border-sand focus:border-mint'
@@ -97,11 +112,9 @@ export const LoginForm = () => {
             form='form-sing-in'
             variant='outline'
             type='submit'
-            className='w-full bg-black text-white'>
+            disabled={!isFormValid}
+            className='w-full bg-black text-white disabled:opacity-50 disabled:cursor-not-allowed'>
             Войти
-          </Button>
-          <Button variant='outline' className='w-full border-sand hover:bg-sand/50'>
-            Войти с Google
           </Button>
         </CardFooter>
       </Card>
