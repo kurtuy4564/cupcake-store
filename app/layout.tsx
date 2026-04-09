@@ -4,6 +4,7 @@ import './globals.css'
 import { cn } from '@/shared/lib/utils'
 import { Header } from '@/widgets/header'
 import { Footer } from '@/widgets/footer'
+import { RootProviders } from './providers/RootProviders'
 
 const figtree = Figtree({ subsets: ['latin'], variable: '--font-sans' })
 
@@ -39,13 +40,15 @@ export default function RootLayout({
         figtree.variable,
       )}>
       <body className='min-h-full flex flex-col'>
-        <div className='min-h-screen bg-cream text-slate-900'>
-          <div className='mx-auto w-full max-w-7xl px-6 py-8 lg:py-12'>
-            <Header />
-            <main className='my-10'>{children}</main>
-            <Footer />
+        <RootProviders>
+          <div className='min-h-screen bg-cream text-slate-900'>
+            <div className='mx-auto w-full max-w-7xl px-6 py-8 lg:py-12'>
+              <Header />
+              <main className='my-10'>{children}</main>
+              <Footer />
+            </div>
           </div>
-        </div>
+        </RootProviders>
       </body>
     </html>
   )

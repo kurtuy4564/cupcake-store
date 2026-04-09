@@ -12,12 +12,6 @@ export const Navigation = () => {
       <Link href='/contact' className='hover:text-slate-900'>
         Контакты
       </Link>
-      <Link href='/login' className='hover:text-slate-900'>
-        Войти
-      </Link>
-      <Link href='/register' className='hover:text-slate-900'>
-        Регистрация
-      </Link>
     </nav>
   )
 }

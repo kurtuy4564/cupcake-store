@@ -1,4 +1,7 @@
+'use client'
+
 import React from 'react'
+import { useRouter } from 'next/navigation'
 import { Button } from '@/shared/ui/button'
 import {
   Card,
@@ -13,17 +16,26 @@ import { Input } from '@/shared/ui/input'
 import { Label } from '@/shared/ui/label'
 import { useState } from 'react'
 import { FormDataLogin } from '@/entities/user/types/type'
+import { singInWithCredentials } from '@/entities/user/actions/sing-in'
 
 export const LoginForm = () => {
+  const router = useRouter()
   const [formData, setFormData] = useState<FormDataLogin>({
     email: '',
     password: '',
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
-    console.log('Login:', formData)
+    const result = await singInWithCredentials(formData)
+
+    if (result?.ok) {
+      router.push('/')
+      return
+    }
+
+    console.log('Login error:', result?.error || 'Unknown error')
   }
 
   return (
@@ -41,7 +53,7 @@ export const LoginForm = () => {
           </CardAction>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} id='form-sing-in'>
             <div className='flex flex-col gap-4'>
               <div className='grid gap-2'>
                 <Label htmlFor='email' className='text-primary'>
@@ -82,10 +94,10 @@ export const LoginForm = () => {
         </CardContent>
         <CardFooter className='flex-col gap-3'>
           <Button
+            form='form-sing-in'
             variant='outline'
             type='submit'
-            className='w-full bg-black text-white'
-            onClick={handleSubmit}>
+            className='w-full bg-black text-white'>
             Войти
           </Button>
           <Button variant='outline' className='w-full border-sand hover:bg-sand/50'>
