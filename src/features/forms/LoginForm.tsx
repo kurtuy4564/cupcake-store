@@ -49,6 +49,10 @@ export const LoginForm = () => {
 
     setError('')
     router.push('/')
+
+    setTimeout(() => {
+      window.location.reload()
+    }, 500)
   }
 
   return (

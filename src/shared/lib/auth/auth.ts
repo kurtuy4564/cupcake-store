@@ -49,13 +49,34 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     strategy: 'jwt',
     maxAge: 3600,
   },
-  secret: process.env.NEXTAUTH_SECRET ?? process.env.BETTER_AUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
+  trustHost: true,
   callbacks: {
     async jwt({ token, user }) {
-      if (user) {
-        token.id = user.id
+      try {
+        if (user) {
+          token.id = user.id as string
+          token.email = user.email
+        }
+        return token
+      } catch (error) {
+        console.error('JWT callback error:', error)
+        return token
       }
-      return token
     },
+    async session({ session, token }) {
+      try {
+        if (session?.user) {
+          session.user.id = token.id
+        }
+        return session
+      } catch (error) {
+        console.error('Session callback error:', error)
+        return session
+      }
+    },
+  },
+  pages: {
+    error: '/login',
   },
 })

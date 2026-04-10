@@ -4,10 +4,12 @@ export const FigureImage = ({
   src,
   alt,
   className,
+  loading = 'lazy',
 }: {
   src: string
   alt: string
   className?: string
+  loading?: 'lazy' | 'eager'
 }) => {
   return (
     <figure
@@ -21,6 +23,7 @@ export const FigureImage = ({
         width={1440}
         height={960}
         sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 720px'
+        loading={loading}
       />
     </figure>
   )

@@ -1,3 +1,5 @@
+'use client'
+
 import { useCupCakeStore } from '@/entities/cupcake/model/store'
 import { CupcakeCartCard } from '@/entities/cupcake/ui/CupcakeCartCard'
 import { Fragment } from 'react/jsx-runtime'

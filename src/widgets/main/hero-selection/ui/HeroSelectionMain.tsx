@@ -27,6 +27,7 @@ export const HeroSelectionMain = () => {
       <FigureImage
         src='https://static-basket-02.wbbasket.ru/vol25/wbkids_articles_editor/134b0b53-abf9-4b3f-b89e-ef9387cca17d.jpg'
         alt='Набор капкейков на деревянной доске'
+        loading='eager'
       />
     </section>
   )
