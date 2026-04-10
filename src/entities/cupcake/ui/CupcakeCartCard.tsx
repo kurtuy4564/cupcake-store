@@ -6,7 +6,7 @@ export const CupcakeCartCard = ({ cupcake }: { cupcake: CupCake }) => {
     <article className='grid gap-4 rounded-[1.75rem] border border-[#EDE0D4] p-4 sm:grid-cols-[120px_1fr]'>
       <div className='overflow-hidden rounded-[1.5rem] bg-slate-100'>
         <Image
-          src={cupcake.image}
+          src={cupcake.imgUrl}
           alt='Розовый капкейк'
           width={240}
           height={240}

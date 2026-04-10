@@ -7,7 +7,7 @@ export const CupcakeCard = ({ cupcake }: { cupcake: CupCake }) => {
   return (
     <article key={cupcake.name} className='card overflow-hidden'>
       <Image
-        src={cupcake.image}
+        src={cupcake.imgUrl}
         alt={cupcake.name}
         className='h-44 w-full object-cover'
         width={900}

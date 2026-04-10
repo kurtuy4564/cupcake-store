@@ -39,15 +39,16 @@ export const LoginForm = () => {
     }
 
     const result = await singInWithCredentials(formData)
-    
+
     console.log(result)
-    
-    if (result?.ok) {
-      router.push('/')
+
+    if (result?.error) {
+      setError('Неверный email или пароль')
       return
     }
 
-    setError('Неверный email или пароль')
+    setError('')
+    router.push('/')
   }
 
   return (

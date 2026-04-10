@@ -2,6 +2,9 @@ export type CupCake = {
   id: number
   name: string
   price: string
-  image: string
-  description: string
+  imgUrl: string
+  description: string | null
+  createdAt?: Date
+  updatedAt?: Date
+  inStock?: boolean
 }

@@ -63,3 +63,17 @@ model VerificationToken {
   @@unique([identifier, token])
   @@map("verification_tokens")
 }
+
+model Product {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  price       String 
+  imgUrl      String
+  inStock     Boolean  @default(true)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("products")   // название таблицы в БД будет products
+}
